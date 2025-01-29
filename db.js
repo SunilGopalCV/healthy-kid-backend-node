@@ -1,11 +1,12 @@
+require("dotenv").config();
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: "sql12.freesqldatabase.com",
-  user: "sql12760156", // Replace with your MySQL username
-  password: "tUMNpAhZIp", // Replace with your MySQL password
-  database: "sql12760156",
-  port: 3306,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.PORT,
 });
 
 db.connect((err) => {
